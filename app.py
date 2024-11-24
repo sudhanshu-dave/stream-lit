@@ -26,4 +26,8 @@ if uploaded_file:
         st.line_chart(data[column])
     elif chart_type == "Bar Chart":
         st.bar_chart(data[column])
+    elif chart_type == "Histogram":
+        fig, ax = plt.subplots()
+        ax.hist(data[column].dropna(), bins=10)
+        st.pyplot(fig)
 
